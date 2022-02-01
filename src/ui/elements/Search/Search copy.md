@@ -1,6 +1,6 @@
 import React from "react";
 import { FC, useContext } from "react";
-import { SearchContext } from "../../../context";
+import { SearchContext } from "../../../ctx";
 import { Hit } from "react-instantsearch-core";
 import { AutoCompleteProps } from "../../../ts";
 import algoliasearch from "algoliasearch/lite";

@@ -1,6 +1,6 @@
 import { Children, useState, FC, useEffect, useContext } from "react";
-import { handleSignUp } from "../../../../hooks/AWS";
-import { GlobalContext } from "../../../../context/GlobalContext";
+import { handleSignup } from "../../../../lib/aws";
+import { GlobalContext } from "../../../../ctx";
 import { Formik, Form, FormikConfig, FormikValues } from "formik";
 import { object, string, bool } from "yup";
 import Step0 from "./step0";
@@ -75,7 +75,7 @@ const SignUpStepper = () => {
         }}
         onSubmit={async (values, helpers) => {
           const { name, email, password } = values;
-          if (handleSignUp !== undefined && step === 0) {
+          if (handleSignup !== undefined && step === 0) {
             /**TODO: Handle error messages before calling the sign
              * up function
              * i.e.: if (!errors.cognito) {...
@@ -88,7 +88,7 @@ const SignUpStepper = () => {
             clearErrorState();
             setStatus("processing");
             try {
-              const res = await handleSignUp(name, email, password);
+              const res = await handleSignup(name, email, password);
 
               if (res.userSub) {
                 setStep(1);
@@ -101,7 +101,7 @@ const SignUpStepper = () => {
               setStatus("ready");
             }
           } else {
-            console.log("Looks like the handleSignUp function is either undefined or you are not currently on step 0 in the sign up flow.");
+            console.log("Looks like the handleSignup function is either undefined or you are not currently on step 0 in the sign up flow.");
           }
         }}
       >
@@ -165,7 +165,7 @@ const SignUpStepper = () => {
   }
   function handleKeyDown(e: any) {
     if (e.key === "Enter") {
-      //handleSignUp(name, email, password)
+      //handleSignup(name, email, password)
     }
   }
 };

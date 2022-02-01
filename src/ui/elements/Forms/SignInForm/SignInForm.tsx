@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { GlobalContext } from "../../../../context";
+import { GlobalContext } from "../../../../ctx";
 
 interface ISignInFormProps {
   toggleSignInModalState: () => void;

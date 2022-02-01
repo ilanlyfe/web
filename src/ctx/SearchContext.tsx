@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect, FC } from "react";
-import { Hit } from "react-instantsearch-core";
+// import { Hit } from "react-instantsearch-core";
 interface SearchContextProps {
   searchQuery?: string;
   setSearchQuery: (query: string) => void;

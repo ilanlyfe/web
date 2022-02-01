@@ -1,10 +1,10 @@
 import { useState, useContext, useEffect, FC, FormEvent } from "react";
-import { GlobalContext } from "../../../../context";
-import { IBookingRequestResponse, sendBookingRequest, sendBookingRequestTEST } from "../../../../utils/sendBookingRequest";
+import { GlobalContext } from "../../../../ctx";
+import { IBookingRequestResponse, sendBookingRequest, sendBookingRequestTEST } from "../../../../lib/sendBookingRequest";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FormikInput } from "../../../core/Input/FormikInput";
 import { object, string, bool } from "yup";
-import { ExperienceFields } from "../../../../ts/page-props";
+import { ExperienceFields } from "../../../props";
 import clsx from "clsx";
 import s from "./BookingRequestForm.module.css";
 import Section from "../../../core/Section";

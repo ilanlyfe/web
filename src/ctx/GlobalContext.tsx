@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext, FC, MouseEvent, Fragment } from "react";
 import Auth from "@aws-amplify/auth";
 import Amplify from "@aws-amplify/core";
-import { handleSignUp } from "../hooks/AWS";
+// import { handleSignUp } from "../hooks/AWS";
 
 Amplify.configure({
   Auth: {
@@ -16,7 +16,7 @@ interface GlobalContextProps {
   currentUser: ICurrentUser | null;
   handleSignIn: (e: MouseEvent) => Promise<void>;
   handleLogOut: (e: MouseEvent) => Promise<void>;
-  handleSignUp: typeof handleSignUp;
+  // handleSignUp: typeof handleSignUp;
 }
 
 interface ICurrentUser {
@@ -53,7 +53,7 @@ export const GlobalProvider: FC = ({ children }) => {
     })();
   }, [currentUser]);
 
-  return <GlobalContext.Provider value={{ Auth, currentUser, handleLogOut, handleSignIn, handleSignUp }}>{children}</GlobalContext.Provider>;
+  return <GlobalContext.Provider value={{ Auth, currentUser, handleLogOut, handleSignIn /* handleSignUp*/ }}>{children}</GlobalContext.Provider>;
 
   // function toggleModal() {
   //   setModalState(!isModalOpen);
@@ -67,7 +67,7 @@ export const GlobalProvider: FC = ({ children }) => {
       await Auth.signOut();
       setCurrentUser(null);
     } catch (err) {
-      console.log(err.message);
+      console.log(err /*.message*/);
     }
   }
 
@@ -81,7 +81,7 @@ export const GlobalProvider: FC = ({ children }) => {
       });
       setCurrentUser(session.attributes);
     } catch (err) {
-      console.log(err.message);
+      console.log(err /*.message*/);
     }
   }
 

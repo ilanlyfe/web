@@ -16,7 +16,7 @@ const Layout: FC<LayoutProps> = ({ children, meta }) => {
   return (
     <>
       <Head>
-        <title>{meta?.title || "Enjoythevi"}</title>
+        <title>{meta?.title || "ilanlyfe"}</title>
         <meta name="description" content={meta?.description || "Welcome to the best that the virgin islands has to offer."} />
         <meta content="/media/images/coconut_logo.png"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></meta>

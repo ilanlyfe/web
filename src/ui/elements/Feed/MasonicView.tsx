@@ -1,6 +1,6 @@
 import { FC, ComponentType } from "react";
 import Card from "../Card";
-import { ExperienceFields } from "../../../ts/page-props";
+// import { ExperienceFields } from "../../props";
 import { Masonry } from "masonic";
 
 interface MasonicViewProps {

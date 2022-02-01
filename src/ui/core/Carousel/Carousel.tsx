@@ -17,22 +17,22 @@ const Carousel: FC<CarouselProps> = ({ media, mode, slidesPerView = 1, dots, loo
     initial: 0,
     loop,
     mode,
-    slidesPerView,
-    spacing: 16,
+    // slidesPerView,
+    // spacing: 16,
     slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide);
+      // setCurrentSlide(s.details().relativeSlide);
     },
   });
   function handleSliderPrev(event: BaseSyntheticEvent) {
     event.preventDefault();
     if (slider !== undefined && "prev" in slider) {
-      slider.prev();
+      // slider.prev();
     }
   }
   function handleSliderNext(event: BaseSyntheticEvent) {
     event.stopPropagation();
     if (slider !== undefined && "next" in slider) {
-      slider.next();
+      // slider.next();
     }
   }
   /** TODO: Remove the follwoing comment when yout carousel work is done
@@ -63,16 +63,17 @@ const Carousel: FC<CarouselProps> = ({ media, mode, slidesPerView = 1, dots, loo
         </div>
         {false && (
           <>
-            <ArrowLeft onClick={(e: BaseSyntheticEvent) => handleSliderPrev(e)} disabled={slider.details().size < 1} />
-            <ArrowRight onClick={(e: BaseSyntheticEvent) => handleSliderNext(e)} disabled={slider.details().size < 1} />
+            {/* <ArrowLeft onClick={(e: BaseSyntheticEvent) => handleSliderPrev(e)} disabled={slider.details().size < 1} />
+            <ArrowRight onClick={(e: BaseSyntheticEvent) => handleSliderNext(e)} disabled={slider.details().size < 1} /> */}
           </>
         )}
       </div>
-      {slider && slider.details().size > 1 && dots !== false && (
-        <div className="dots">
-          {/* TODO: get the indicies of all the sliders as an array and pass them to the folowing JSX
+
+      {/* {slider && slider.details().size > 1 && dots !== false && (
+        <div className="dots"> */}
+      {/* TODO: get the indicies of all the sliders as an array and pass them to the folowing JSX
           so that they are able to be mapped. Basically remove the ...Array mumbojumbo.  */}
-          {[...Array(slider.details().size).keys()].map((idx) => {
+      {/* {[...Array(slider.details().size).keys()].map((idx) => {
             return (
               <button
                 key={idx}
@@ -84,7 +85,7 @@ const Carousel: FC<CarouselProps> = ({ media, mode, slidesPerView = 1, dots, loo
             );
           })}
         </div>
-      )}
+      )} */}
     </>
   );
 };
