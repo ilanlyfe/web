@@ -1,5 +1,5 @@
 import { FC, Fragment } from "react";
-import { utils } from "../../../hooks";
+import { parseMediaToObjectArray } from "../../../lib/utils";
 import Header from "../../core/Header";
 import Link from "next/link";
 import Media from "../Media";
@@ -32,7 +32,7 @@ interface CardProps {
  * character count and will have to expand?
  */
 const Card: FC<CardProps> = ({ kind, title, data, media, id }) => {
-  const parsedMedia = utils.parseMediaToObjectArray(data?.fields?.media);
+  const parsedMedia = parseMediaToObjectArray(data?.fields?.media);
 
   // const Media = () => (
   //   <section className=" mb-2">

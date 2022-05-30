@@ -8,7 +8,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   text?: string;
-  variant?: "primary" | "secondary" | "nav" | "goBack" | "social" | "save" | "filter" | "close";
+  variant?: "primary" | "secondary" | "nav" | "goBack" | "social" | "save" | "filter" | "close" | "new-button";
   width?: number;
   bgcolor?: string;
   icon?: JSX.Element;

@@ -2,7 +2,7 @@ import { FC, Children, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Button from "../Button";
 import Icon from "../Icons";
-import SideBar from "../../ui/Sidebar";
+// import SideBar from "../../ui/Sidebar";
 
 const links = [
   {
@@ -68,9 +68,7 @@ const SlideMenu: FC<SlideProps> = ({ open = false, toggleSlider }) => {
               <Button variant="close" icon={<Icon variant="close2" />} onClick={toggleSlider} />
             </div>
           </header>
-          <main className="flex-auto md:mt-24">
-            <SideBar heading="" links={links} />
-          </main>
+          <main className="flex-auto md:mt-24">{/* <SideBar heading="" links={links} /> */}</main>
         </div>,
         portal
       )

@@ -1,12 +1,19 @@
 import Card from "../Card";
+import React  from "react"
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
-import { getContent } from "../../../hooks/contentful";
+// import { getContent } from "../../../hooks/contentful";
 import { FC } from "react";
 import Type from "../../core/Type";
 // import CTA from "../../Elements/Cta";
 // import OpenStory from "./OpenStory";
-
+type params = {
+  limit: number;
+  type: string;
+};
+// const getContent = async (params: params) => React.SetStateAction<never[]> {
+//   return
+// };
 interface ContentFeedProps {
   activeStory?: any;
   currentUser?: any;
@@ -57,9 +64,9 @@ const ContentFeed: FC<ContentFeedProps> = ({ activeStory, currentUser, limit = 2
   );
 
   async function init() {
-    const content = await getContent({ limit, type: "story" });
+    // const content = await getContent({ limit, type: "story" });
     console.log(content);
-    setContent(content);
+    // setContent([content]);
   }
 };
 

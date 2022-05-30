@@ -1,10 +1,13 @@
 import { useInfiniteLoader } from "masonic";
 import { useEffect, useState } from "react";
-import { getContent } from "../../../hooks/contentful";
+// import { getContent } from "../../../lib/contentful";
 import MasonicView from "./MasonicView";
 // import CTA from "../../Elements/Cta";
 // import OpenStory from "./OpenStory";
 
+const getContent = async (params) => {
+  return params;
+};
 const Feed = ({ openedStory = null, displayCta, Auth, limit = 10 }) => {
   const [localStories, setLocalStories] = useState([]);
 

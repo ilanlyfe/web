@@ -2,7 +2,7 @@ import { FC } from "react";
 import Media from "../Media";
 import Type from "../../core/Type";
 import Link from "next/link";
-import { utils } from "../../../hooks";
+import { parseMediaToObjectArray } from "../../../lib/utils";
 import Section from "../../core/Section";
 import Icon from "../../core/Icons";
 
@@ -19,7 +19,7 @@ interface ExperienceCardProps {
   */
 
 const ExperienceCard: FC<ExperienceCardProps> = ({ id, data }) => {
-  const media = utils.parseMediaToObjectArray(data.media);
+  const media = parseMediaToObjectArray(data.media);
   return (
     <div className="">
       <section className="mb-2">
