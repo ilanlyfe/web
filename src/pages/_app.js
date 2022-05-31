@@ -3,16 +3,20 @@ import NavBar from "../ui/elements/NavBar";
 
 const links = [
   {
-    text: "studio",
+    text: "stories",
     url: "/",
   },
   {
-    text: "style",
-    url: "/style",
+    text: "experiences",
+    url: "/experiences",
   },
   {
-    text: "746",
-    url: "/746",
+    text: "trips",
+    url: "/trips",
+  },
+  {
+    text: "messages",
+    url: "/messages",
   },
 ];
 
