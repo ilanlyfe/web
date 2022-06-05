@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import PrimaryHero from "../ui/elements/PrimaryHero";
+import PrimaryHero from "../ui/composites/PrimaryHero";
 
 export default function Home() {
   return (

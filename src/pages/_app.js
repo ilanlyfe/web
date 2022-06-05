@@ -1,5 +1,12 @@
 import "../styles/globals.css";
-import NavBar from "../ui/elements/NavBar";
+import NavBar from "../ui/composites/NavBar";
+
+const navigation = [
+  { name: "Product", href: "#" },
+  { name: "Features", href: "#" },
+  { name: "Marketplace", href: "#" },
+  { name: "Company", href: "#" },
+];
 
 const links = [
   {

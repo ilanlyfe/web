@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ErrorPage from "next/error";
 import Layout from "./index.jsx";
 import Grid from "@material-ui/core/Grid";
-import Section from "../Elements/Section";
+import Section from "../composites/Section";
 
 export default ({ leftContent, rightContent }) => {
   const meta = {
