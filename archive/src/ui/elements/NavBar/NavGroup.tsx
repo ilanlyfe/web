@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Link from "../../core/Link";
+import Link from "../../units/Link";
 
 interface PrimaryNavLinksProps {
   links: NavLink[];

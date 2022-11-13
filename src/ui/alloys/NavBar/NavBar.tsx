@@ -1,30 +1,35 @@
-import { GlobalContext } from "../../../ctx";
+// import { GlobalContext } from "../../../ctx";
 import { FC, Fragment, useContext, useState } from "react";
-import Link from "../../core/Link";
-import { PrimaryNavLinks } from "./PrimaryNavLInks";
+import { Link } from "../../../props";
+import Text from "../../units/Text";
+import  NavGroup  from "../NavGroup";
 // import Modal from "../../core/Modal";
 // import Search from "../Search";
 // import SignUp from "../Forms/SignUp/index";
 // import SignInForm from "../Forms/SignInForm";
 
 interface NavBarProps {
-  navLinks: any[];
 }
-const NavBar: FC<NavBarProps> = ({ navLinks }) => {
-  const { currentUser, handleLogOut } = useContext(GlobalContext);
+const NavBar: FC<NavBarProps> = () => {
+  // const { currentUser, handleLogOut } = useContext(GlobalContext);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isSignInModalOpen, setSignInModalState] = useState(false);
-
+const navLinks: Link[] = [
+  {
+    text: "login",
+    url: "/",
+  },
+]
   return (
     // <header className="fixed top-0 z-50 w-full shadow-md sm:px-8 text-gray-700 bg-white body-font xxmotion-safe:animate-fadeIn" style={{ background: "#fff" }}>
     <header className="fixed top-0 z-50 w-full shadow-md sm:px-8 text-gray-700 bg-white body-font motion-safe:animate-fadeIn" style={{ background: "#fff" }}>
       <div className="container flex flex-col flex-wrap items-center justify-between py-3 sm:py-5 mx-auto md:flex-row max-w-7xl">
         <div className="hidden sm:flex items-center order-first mb-4 font-medium text-gray-900 lg:order-none lg:w-auto title-font lg:items-center lg:justify-center md:mb-0">
-          <Link href="/" text="ilanlyfe">
+          <Text href="/" text="ilanlyfe">
             <a>
               <span className="mr-2 text-xl font-black leading-none text-gray-900 select-none logo"></span>
             </a>
-          </Link>
+          </Text>
         </div>
 
         <div className="flex-grow w-full sm:w-auto">
@@ -52,7 +57,7 @@ const NavBar: FC<NavBarProps> = ({ navLinks }) => {
           </div>
         </div>
         <div className="hidden sm:flex flex-col md:flex-row">
-          <PrimaryNavLinks links={navLinks} />
+          <NavGroup links={navLinks} />
         </div>
         {/* <div className="flex-grow ">
           <div className=" flex justify-center sm:justify-start ">
@@ -60,18 +65,18 @@ const NavBar: FC<NavBarProps> = ({ navLinks }) => {
           </div>
         </div> */}
 
-        <div className="hidden ">
+        <div className="hidden">
           {/*sm:flex flex-col md:flex-row*/}
-          <PrimaryNavLinks links={navLinks} />
+          <NavGroup links={navLinks} />
           <div className="inline-flex items-center justify-center md:justify-end">
-            {currentUser ? (
+            {/* {currentUser ? (
               <Link variant="action" onClick={handleLogOut} text="Sign out" />
             ) : (
               <Fragment>
                 {/* <Link variant="action" onClick={toggleSignInModalState} text="Sign in" />
-                <Link variant="action" onClick={toggleModal} text="Sign up" /> */}
+                <Link variant="action" onClick={toggleModal} text="Sign up" /> 
               </Fragment>
-            )}
+            )} */}
           </div>
         </div>
       </div>

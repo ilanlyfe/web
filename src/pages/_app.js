@@ -1,28 +1,7 @@
-import "../styles/globals.css";
-import NavBar from "../ui/elements/NavBar";
+import '../styles/globals.css'
 
-const links = [
-  {
-    text: "studio",
-    url: "/",
-  },
-  {
-    text: "style",
-    url: "/style",
-  },
-  {
-    text: "746",
-    url: "/746",
-  },
-];
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <NavBar navLinks={links} />
-      <Component {...pageProps} />
-    </>
-  );
+function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
 }
 
-export default MyApp;
+export default App
