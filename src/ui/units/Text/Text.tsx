@@ -41,7 +41,7 @@ const Text: FC<TextProps> = ({ href, text, className, children, variant, color, 
           <Fragment>
             {href ? (
               <Link href={href}>
-                <span className={clsx("font-normal text-blue-600", className)}> {text !== "" ? text :children}</span>
+                <span className={clsx("font-normal text-blue-600", className)}style={{ marginRight: "16px" }}> {text !== "" ? text :children}</span>
               </Link>
             ) : null}
           </Fragment>

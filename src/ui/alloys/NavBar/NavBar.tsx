@@ -19,12 +19,20 @@ const navLinks: Link[] = [
     text: "login",
     url: "/api/auth/login",
   },
+  {
+    text: "logout",
+    url: "/api/auth/logout",
+  },
+  {
+    text: "me",
+    url: "/api/auth/me",
+  },
 ]
 return (
   // <header className="fixed top-0 z-50 w-full shadow-md sm:px-8 text-gray-700 bg-white body-font xxmotion-safe:animate-fadeIn" style={{ background: "#fff" }}>
-  <header className="hidden fixed top-0 z-50 w-full shadow-md sm:px-8 text-gray-700 bg-white body-font motion-safe:animate-fadeIn" style={{ background: "#fff" }}>
+  <header className="fixed top-0 z-50 w-full shadow-md sm:px-8 text-gray-700 bg-white body-font motion-safe:animate-fadeIn" style={{ background: "#fff" }}>
     <div className="container flex flex-col flex-wrap items-center justify-between py-3 sm:py-5 mx-auto md:flex-row max-w-7xl">
-      <div className="hidden sm:flex items-center order-first mb-4 font-medium text-gray-900 lg:order-none lg:w-auto title-font lg:items-center lg:justify-center md:mb-0">
+      <div className="sm:flex items-center order-first mb-4 font-medium text-gray-900 lg:order-none lg:w-auto title-font lg:items-center lg:justify-center md:mb-0">
         <Text href="/" text="ilanlyfe"/>
       </div>
 
@@ -52,7 +60,7 @@ return (
           </div>
         </div>
       </div>
-      <div className="hidden sm:flex flex-col md:flex-row">
+      <div className="sm:flex flex-col md:flex-row">
         <NavGroup links={navLinks} />
       </div>
       {/* <div className="flex-grow ">
