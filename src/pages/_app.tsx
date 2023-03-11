@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import PrimaryNavBar from '@/components/organizms/PrimaryNav/primary_nav_bar'
+import PrimaryNavBar from '../components/organizms/PrimaryNav'
 
 export default function App({ Component, pageProps }: AppProps) {
 

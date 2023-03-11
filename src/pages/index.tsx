@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
      
     <main>
-      yo!
+      
     </main>
     </>
   )
