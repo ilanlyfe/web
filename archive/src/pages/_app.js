@@ -14,7 +14,7 @@ const links = [
     text: "746",
     url: "/746",
   },
-];
+];navLinks={links} 
 
 function MyApp({ Component, pageProps }) {
   return (
