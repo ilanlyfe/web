@@ -14,6 +14,10 @@ export default function App({ Component, pageProps }: AppProps) {
       url: "/style",
     },
     {
+      text: "sign in",
+      url: "/746",
+    },
+    {
       text: "more",
       url: "/746",
     },
