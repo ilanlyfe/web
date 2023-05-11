@@ -8,12 +8,12 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-interface PrimaryNavBarProps {
+interface NavBar {
   navLinks: {text: string, url: string }[];
 }
 
 
-const PrimaryNavBar: FC<PrimaryNavBarProps> = ({ navLinks }) => {
+const PrimaryNavBar: FC<NavBar> = ({ navLinks }) => {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (

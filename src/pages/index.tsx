@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Open_Sans } from 'next/font/google'
+import Feed from '@/components/organisms/curator'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -14,7 +15,7 @@ export default function Home() {
       </Head>
      
     <main>
-      
+      <Feed />
     </main>
     </>
   )
