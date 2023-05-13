@@ -8,12 +8,30 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-interface NavBar {
-  navLinks: {text: string, url: string }[];
+interface NavBarProps {
+  // navLinks: {text: string, url: string }[];
 }
 
 
-const PrimaryNavBar: FC<NavBar> = ({ navLinks }) => {
+const NavBar: FC<NavBarProps> = () => {
+  const links = [
+    {
+      text: "home",
+      url: "/",
+    },
+    {
+      text: "journeys",
+      url: "/style",
+    },
+    {
+      text: "sign in",
+      url: "/746",
+    },
+    {
+      text: "more",
+      url: "/746",
+    },
+  ];
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -35,7 +53,7 @@ const PrimaryNavBar: FC<NavBar> = ({ navLinks }) => {
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  {navLinks.map((link,key ) => (
+                  {links.map((link,key ) => (
                     <a key={key} className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" href={link.url}>
                       {link.text}
                     </a> ))
@@ -224,4 +242,4 @@ const PrimaryNavBar: FC<NavBar> = ({ navLinks }) => {
   )
 }
 
-export default PrimaryNavBar;
+export default NavBar;

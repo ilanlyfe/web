@@ -1,30 +1,12 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import PrimaryNavBar from '../components/organisms/nav'
+import NavBar from '../components/organisms/nav'
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  const links = [
-    {
-      text: "home",
-      url: "/",
-    },
-    {
-      text: "journeys",
-      url: "/style",
-    },
-    {
-      text: "sign in",
-      url: "/746",
-    },
-    {
-      text: "more",
-      url: "/746",
-    },
-  ];
   return (
 <>
-<PrimaryNavBar navLinks={links}  />
+<NavBar />
 <Component {...pageProps} />
 </>
   )

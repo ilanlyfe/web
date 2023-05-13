@@ -4,7 +4,7 @@
 // components. 
 
 import { useEffect, useState, FC } from "react";
-import { ItemType, ItemProps, Item } from "../../entities";
+import { ItemType, ItemProps, Item } from "../../../interfaces";
 import Story from "./story";
 import Experience from "./experience";
 import Gem from "./gem";

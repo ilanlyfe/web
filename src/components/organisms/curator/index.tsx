@@ -4,9 +4,9 @@
 // service... 
 
 import { useEffect, useState } from "react";
-import { Persona, Curation } from "../../entities";
+import { Persona, Curation } from "../../../interfaces";
 import { utils } from "@/utils";
-import { GetCuration } from "../../../pages/api/internal/juvae";
+import { GetCuration } from "../../../pages/api/internal/curator";
 import ItemComponent from "@/components/molecules/item";
 import Loading from "@/components/molecules/loading";
 

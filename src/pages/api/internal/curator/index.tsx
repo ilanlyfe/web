@@ -1,6 +1,6 @@
 import path from 'path';
-// import { promises as fs } from 'fs';
-import { Persona, Curation } from '../../../../components/entities';
+import { promises as fs } from 'fs';
+import { Persona, Curation } from '../../../../interfaces';
 
 
 // export async function getCurations(ctx: Persona) : Promise<getCurationsResponse>{
@@ -9,8 +9,8 @@ export async function GetCuration(ctx: Persona) {
     //Find the absolute path of the json directory
     //Read the json data file data.json
     try {
-        // const jsonDirectory = path.join(process.cwd(), 'json');
-        // const fileContents = await fs.readFile(jsonDirectory + '/mock_curations.json', 'utf8');
+        const jsonDirectory = path.join(process.cwd(), 'json');
+        const fileContents = await fs.readFile(jsonDirectory + '/mock_curations.json', 'utf8');
         //Return the content of the data file in json format
         // const nextItems = await getContent({ skip, limit, type: "story" });
         // if (nextItems.length > 0) setLocalStories((current) => [...current, ...nextItems]);
@@ -29,8 +29,8 @@ export async function GetCuration(ctx: Persona) {
           from: "useEffect",
         };
         console.log("params: to refresh context.  ", params);
-        // let curations = JSON.parse(fileContents);
-        let curation: Curation = JSON.parse('{}');
+        let curation = JSON.parse(fileContents);
+        // let curation: Curation = JSON.parse('{}');
         return curation; 
 
         // return fileContents; 
