@@ -1,1 +1,0 @@
-export { handleSignUp } from "./auth";

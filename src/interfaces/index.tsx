@@ -1,63 +1,223 @@
-export interface Data {
-
-}
+import type { Endpoints } from "@octokit/types";
+export interface Data {}
 
 export interface Persona {
-    limit: Number;
-    guestContext?: string;
-    behavior?: Behavior; 
+  limit: number;
+  guestContext?: string;
+  behavior?: Behavior;
 }
 
 export interface Behavior {
-    views: View[];
+  views: View[];
 }
 
 export interface getCurationsResponse {
-    curations: Curation[];
+  curations: Curation[];
 }
 
-export interface Item {
-    id: string;
-    type: ItemType; 
-    active?: boolean;
-    imageUrl: string; 
-    title: string; 
-    href: string; 
-    description: string; 
-    date: string; 
-    datetime: string; 
-    user: User;
+export interface ItemData {
+  id: string;
+  type: ItemDataType;
+  active?: boolean;
+  media: Media[];
+  title: string;
+  name?: string;
+  href?: string;
+  rate: number;
+  description: string;
+  createdAt: string;
+  reviews?: Review[];
+  creator: Guest | SystemEntity;
+  content?: any;
+  itemType?: Story | Experience; // testing this approach out...
+  location?: Location;
+  item: ExperienceType; // testing this approach out...
 }
 
-export enum ItemType {
-    STORY = "story",
-    EXPERIENCE = "experience",
-    JOURNEY = "journey",
-    GUIDE = "guide",
-    GEM = "gem",
-    GUEST = "guest",
+export type ExperienceType = {
+  id: string;
+  // active?: boolean;
+  // media: Media[];
+  // title: string;
+  // name?: string;
+  // href?: string;
+  // rate: number;
+  // description: string;
+  // createdAt: string;
+  // reviews?: Review[];
+  // creator: Guest | SystemEntity;
+  // content?: any;
+  // itemType?: Story | Experience; // testing this approach out...
+  // location?: Location;
+};
 
+export type StoryType = {
+  id: string;
+};
+export interface Story {
+  id: string;
+  media: Media[];
 }
 
-export interface User {
-    name: string;
+export interface Experience {
+  id: string;
+  media: Media[];
+  title: string;
+  description: string;
+  rate: number;
+  reviews?: Review[];
+}
+
+export interface Review {
+  id: string;
+  author: Guest;
+  content: string;
+  createdAt: string;
+  upVotes: number;
+  downVotes: number;
+  shares: number;
+}
+export interface Media {
+  id?: string;
+  type: MediaType;
+  srcUri: string;
+  alt?: string;
+}
+
+export enum MediaType {
+  IMAGE = "image",
+  VIDEO = "video",
+  AUDIO = "audio",
+}
+
+interface _CardProps {
+  meta?: unknown;
+  profile?: string;
+  media?: string | { src: any; link: any }[];
+  kind:
+    | "reward"
+    | "promo"
+    | "story"
+    | "experience"
+    | "event"
+    | "info"
+    | "category";
+}
+export enum ItemDataType {
+  STORY = "story",
+  EXPERIENCE = "experience",
+  JOURNEY = "journey",
+  GUIDE = "guide",
+  GEM = "gem",
+  GUEST = "guest",
+}
+
+export interface AuthSession {
+  token: string;
+  user?: Guest;
+  error?: AuthError;
+}
+
+export interface Guest {
+  id: string;
+  userName: string;
+  email?: string;
+  isLoggedIn?: boolean;
+  login?: string;
+  avatarUrl: string;
+}
+
+export interface SystemEntity {
+  id: string;
 }
 
 export interface View {
-    itemId: string; 
-    timeOnSuggeston: number; // seconds
-
+  itemId: string;
+  timeOnSuggeston: number; // seconds
 }
 
 export interface ItemProps {
-    item: Item; 
+  data: ItemData;
+  expanded?: boolean;
+  toggleModalFn?: () => void;
 }
 
-export interface Curation {
-    id: string;
-    prevId?: string;
-    nextId?: string;
-    timeViewed: number;
-    isLead?: boolean;
-    items: Item[]; 
+export interface AuthModalProps {}
+
+export interface SignUpProps {
+  open: boolean;
+  toggleModal: () => void;
 }
+
+export interface ForgotPasswordProps {}
+
+export interface SignInProps {}
+
+export interface Curation {
+  id: string;
+  prevId?: string;
+  nextId?: string;
+  timeViewed?: number;
+  isLead?: boolean;
+  items?: ItemData[]; // FIXME: this needs to be a required prop
+}
+
+export type Events =
+  Endpoints["GET /users/{username}/events"]["response"]["data"];
+
+export interface Session {
+  token: string;
+  guest: Guest;
+  error?: AuthError;
+}
+
+interface AuthError {
+  code: string;
+  message: string;
+}
+
+export interface MessagesProps {
+  messages: MessageProps[];
+}
+
+export interface MessageProps {
+  userName: string;
+  id: string;
+  content: string;
+}
+
+export interface SearchProps {
+  query: string;
+}
+
+export interface Location {
+  lat: number;
+  lng: number;
+  altitude?: string;
+  updatedAt: Date;
+}
+
+export interface Journey {
+  id: string;
+  name: string;
+  description: string;
+  creator: Guest;
+  experiences?: Experience[];
+  permissions?: Permission[];
+}
+
+export interface Permission {
+  id: string;
+  name: string;
+  description: string;
+  roles: Role[];
+}
+
+export interface Role {
+  id: string;
+  name: string;
+}
+
+export type ResponseError = {
+  message: string;
+};
