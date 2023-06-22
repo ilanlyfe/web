@@ -13,9 +13,7 @@ import Modal from "../modal";
 import QueryComponent from "@/components/elements/query";
 
 export default function Curator() {
-  // TODO: add context to this compenont that will house the history
-  // of the user's behavior.
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // TODO:
   const [modalActive, setModalActive] = useState(false);
   const [curationHistory, setCurationHistory] = useState<Curation[]>([]);
   const [currentCuration, setCurrentCuration] = useState<Curation>();
@@ -27,7 +25,7 @@ export default function Curator() {
     // current authenticated user.
   };
 
-  async function handleSetCurrentCuraation() {
+  async function handleSetCurrentCuration() {
     try {
       let curation = await getCuration();
       if (curation !== undefined) {
@@ -38,11 +36,6 @@ export default function Curator() {
     }
   }
 
-  // TODO: handle guests going back and forth between curations.
-  // If a guest goes back to a previous curation and clicks a different
-  // item from the one that was previously clicked to create the current
-  // curation history we will need to remove the curations that are
-  // ahead of the current curation in the history list.
   function updateCurationHistory(curation: Curation) {
     let tempHistory = curationHistory;
     tempHistory.push(curation as Curation);
@@ -50,13 +43,12 @@ export default function Curator() {
   }
 
   useEffect(() => {
-    if (currentCuration === undefined) handleSetCurrentCuraation();
+    if (currentCuration === undefined) handleSetCurrentCuration();
 
     // updateCurationHistory(currentCuration);
   }, []);
 
   function onClick() {
-    debugMsg("clicked to expand");
     debugMsg("clicked to expand");
     setModalActive(!modalActive);
   }
@@ -64,7 +56,7 @@ export default function Curator() {
     debugMsg("clicked to expand");
     setModalActive(!modalActive);
   }
-
+  if (currentCuration != undefined) console.log(currentCuration!.items);
   return (
     <div className="mx-auto max-w-xl">
       {loading == true ? (
@@ -79,6 +71,7 @@ export default function Curator() {
                 ? currentCuration.items.map((data, idx) => (
                     <li key={idx} className="col-span-1 flex flex-col divide-y">
                       <Link href={`/item/${data.id}`}>
+                        {/* need to handle pages for different types of itmes */}
                         <Item
                           key={idx}
                           data={data}

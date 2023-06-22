@@ -26,27 +26,19 @@ export enum TypeVariant {
 const Type: FC<TypeProps> = ({ text, variant, pricingType }) => {
   switch (variant) {
     case TypeVariant.BASE:
-      return (
-        <p className="font-light text-gray-900 dark:text-gray-100">{text}</p>
-      );
+      return <p className="font-light text-gray-900">{text}</p>;
     case TypeVariant.LIGHT:
-      return (
-        <p className="font-light text-gray-900 dark:text-gray-100">{text}</p>
-      );
+      return <p className="font-light text-gray-900">{text}</p>;
     case TypeVariant.PRICING:
       return (
-        <p className="font-light text-gray-900 dark:text-gray-100">
+        <p className="font-light text-gray-900">
           {pricingType === TypePricingType.PER_NIGHT
             ? `$${text} / night`
             : `$${text}`}
         </p>
       );
     case TypeVariant.TITLE:
-      return (
-        <h2 className="text-2xl font-medium text-gray-900 dark:text-gray-100">
-          {text}
-        </h2>
-      );
+      return <h2 className="text-2xl font-medium ">{text}</h2>;
     default:
       return <div>{text}</div>;
   }

@@ -1,4 +1,4 @@
-import { Media, Location } from "@/interfaces";
+import { MediaData, Location } from "@/interfaces";
 
 export interface Resource {
   id: string;
@@ -7,7 +7,7 @@ export interface Resource {
   location: Location;
   region: Region;
   title: string;
-  media: Media[];
+  media: MediaData[];
   oneof: Property | Vessel | Vehicle; // TODO: add later on| Aircraft | Crew | Equipment | Space;
 }
 

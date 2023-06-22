@@ -1,83 +1,62 @@
 import type { Endpoints } from "@octokit/types";
-export interface Data {}
 
-export interface Persona {
-  limit: number;
-  guestContext?: string;
-  behavior?: Behavior;
-}
-
-export interface Behavior {
-  views: View[];
-}
-
-export interface getCurationsResponse {
-  curations: Curation[];
-}
-
+// Data types
 export interface ItemData {
-  id: string;
   type: ItemDataType;
-  active?: boolean;
-  media: Media[];
-  title: string;
-  name?: string;
-  href?: string;
-  rate: number;
-  description: string;
-  createdAt: string;
-  reviews?: Review[];
-  creator: Guest | SystemEntity;
-  content?: any;
-  itemType?: Story | Experience; // testing this approach out...
-  location?: Location;
-  item: ExperienceType; // testing this approach out...
-}
-
-export type ExperienceType = {
   id: string;
-  // active?: boolean;
-  // media: Media[];
+  active?: boolean;
+  creator: Guest | SystemEntity;
+  createdAt: string;
+  href: string;
+  instance: ExperienceData | JourneyData | StoryData;
   // title: string;
   // name?: string;
   // href?: string;
   // rate: number;
   // description: string;
-  // createdAt: string;
-  // reviews?: Review[];
-  // creator: Guest | SystemEntity;
+  // reviews?: ReviewData[];
   // content?: any;
-  // itemType?: Story | Experience; // testing this approach out...
+  // media: MediaData[];
+  // type: ItemDataType;
+  // itemType?: ExperienceData; // testing this approach out...
   // location?: Location;
-};
-
-export type StoryType = {
-  id: string;
-};
-export interface Story {
-  id: string;
-  media: Media[];
+  // item: ExperienceType; // testing this approach out...
 }
 
-export interface Experience {
+export interface StoryData {
   id: string;
-  media: Media[];
+  media: MediaData[];
+  title: string;
+  // name?: string;
+  creator: Guest;
+  // href?: string;
+  points: number;
+  createdAt: string;
+  description: string;
+  reviews?: ReviewData[];
+  // content?: any;
+}
+
+export interface ExperienceData {
+  id: string;
+  media: MediaData[];
   title: string;
   description: string;
   rate: number;
-  reviews?: Review[];
+  // // scoring
+  reviews?: ReviewData[];
 }
 
-export interface Review {
+export interface ReviewData {
   id: string;
-  author: Guest;
+  creator: Guest;
   content: string;
   createdAt: string;
-  upVotes: number;
-  downVotes: number;
+  likes: number;
+  dislikes: number;
   shares: number;
 }
-export interface Media {
+export interface MediaData {
   id?: string;
   type: MediaType;
   srcUri: string;
@@ -136,12 +115,6 @@ export interface View {
   timeOnSuggeston: number; // seconds
 }
 
-export interface ItemProps {
-  data: ItemData;
-  expanded?: boolean;
-  toggleModalFn?: () => void;
-}
-
 export interface AuthModalProps {}
 
 export interface SignUpProps {
@@ -197,12 +170,15 @@ export interface Location {
   updatedAt: Date;
 }
 
-export interface Journey {
+export interface JourneyData {
   id: string;
   name: string;
   description: string;
   creator: Guest;
-  experiences?: Experience[];
+  startDate: Date;
+  endDate: Date;
+  total: number;
+  experiences?: ExperienceData[];
   permissions?: Permission[];
 }
 
@@ -220,4 +196,37 @@ export interface Role {
 
 export type ResponseError = {
   message: string;
+};
+
+export interface Persona {
+  limit: number;
+  guestContext?: string;
+  behavior?: Behavior;
+}
+
+export interface Behavior {
+  views: View[];
+}
+
+// Deprecate??
+
+export type ExperienceType = {
+  id: string;
+  // active?: boolean;
+  // media: Media[];
+  // title: string;
+  // name?: string;
+  // href?: string;
+  // rate: number;
+  // description: string;
+  // createdAt: string;
+  // reviews?: ReviewData[];
+  // creator: Guest | SystemEntity;
+  // content?: any;
+  // itemType?: Story | Experience; // testing this approach out...
+  // location?: Location;
+};
+
+export type StoryType = {
+  id: string;
 };

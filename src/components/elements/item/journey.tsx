@@ -1,15 +1,22 @@
 import { FC } from "react";
+import { JourneyData } from "@/interfaces";
 
-export interface JourneyCompProps {
-  name: string;
+export interface JourneyProps {
+  data: JourneyData;
 }
 
-const JourneyComp: FC<JourneyCompProps> = ({ name }) => {
+const Journey: FC<JourneyProps> = ({
+  data: { id, name, description, creator, startDate, endDate, total },
+}) => {
   return (
     <div>
+      {/* trash button */}
+
       <p>{name}</p>
+      <p>{description}</p>
+      <p>{total}</p>
     </div>
   );
 };
 
-export default JourneyComp;
+export default Journey;

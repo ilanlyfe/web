@@ -1,75 +1,237 @@
 import path from "path";
 import { promises as fs } from "fs";
 import { Persona, Curation, ItemDataType, MediaType } from "@/interfaces";
-
+import { off } from "process";
+const onlineMediaUri =
+  "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80";
+const offlineMediaUri = "/wall.jpg";
 const curation = {
-  id: "curation-id",
+  id: "01H1YGY1YM1EF1VXCGNS38AAAA",
   items: [
     {
-      id: "01H1YGY1YM1EF1VZCGNS3856BC",
-      title: "Boost your conversion rate",
+      id: "01H1YGY1YM1EF1VZCGNS3856BX",
       type: ItemDataType.STORY,
-      href: "#",
-      item: {
-        id: "mock_id",
-      },
-      media: [
-        {
-          id: "uaalkdjfalskdjlfksa",
-          type: MediaType.IMAGE,
-          srcUri:
-            "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-          // alt?: string;
-        },
-      ],
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.",
-      rate: 404004,
-      imageUrl:
-        "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-      date: "Mar 16, 2020",
-      createdAt: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
+      createdAt: "jan 27, 2023",
+      href: "http://localhost:3000/story/sotry-id",
       creator: {
-        id: "Michael Foster",
+        id: "01H1YGY1YM1EF1VZCGNS3856BD",
+        userName: "testing_local_tony",
+        avatarUrl: "google.com",
+      },
+      instance: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BC",
+        name: "sample name 1",
+        title: "Boost your conversion rate today",
+        points: 12345,
+        createdAt: "jan 27, 2023",
+        creator: {
+          id: "01H1YGY1YM1EF1VZCGNS3856BD",
+          userName: "testing_local_tony",
+          avatarUrl: "google.com",
+        },
+        reviews: [
+          {
+            id: "01H1YGY1YM1EF1VZCGNS3856AC",
+            creator: {
+              id: "01H1YGY1YM1EF1VZCGNS3856BD",
+              userName: "testing_local_tony",
+              avatarUrl: "google.com",
+            },
+            content:
+              "This is what i think about the time i went on a boat trip with @capt andy",
+            likes: 123,
+            dislikes: 22,
+            shares: 2345,
+            createdAt: "jan 27, 2023",
+          },
+        ],
+        href: "http://localhost:3000",
+        media: [
+          {
+            id: "uaalkdjfalskdjlfksa",
+            type: MediaType.IMAGE,
+            srcUri: offlineMediaUri,
+
+            // alt?: string;
+          },
+        ],
+        description:
+          "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.",
+        content:
+          "This is some sample content about a time in St. John where my and a friend named mark had a great time out on the water with the fellas. The wifes wree there too!",
+        imageUrl: offlineMediaUri,
       },
     },
     {
-      id: "01H1YGY1YM1EF1VZCGNS3856BD",
-      title: "Boost your conversion rate",
-      type: ItemDataType.STORY,
-      href: "#",
-      item: {
-        id: "mock_id",
-      },
-      media: [
-        {
-          id: "uaalkdjfalskdjlfksa",
-          type: MediaType.IMAGE,
-          srcUri:
-            "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-          // alt?: string;
-        },
-      ],
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.",
-      rate: 404004,
-      imageUrl:
-        "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-      date: "Mar 16, 2020",
-      createdAt: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
+      id: "01H1YGY1YM1EF1VZCGNS3856BX",
+      type: ItemDataType.EXPERIENCE,
+      createdAt: "jan 27, 2023",
+      href: "http://localhost:3000",
       creator: {
-        id: "string;",
-        userName: "string;",
-        email: "string;",
-        isLoggedIn: false,
-        login: "string;",
-        avatarUrl:
-          "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
-        href: "#",
+        id: "01H1YGY1YM1EF1VZCGNS3856BD",
+        userName: "testing_local_tony",
+        avatarUrl: "google.com",
+      },
+      instance: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BX",
+        title: "Villa amazing",
+        points: 12345,
+        rate: 123456,
+        description:
+          "This is a beautiful home overlooking the tranquil waters of the Caribbean Sea.",
+        reviews: [
+          {
+            id: "01H1YGY1YM1EF1VZCGNS3856AC",
+            creator: {
+              id: "01H1YGY1YM1EF1VZCGNS3856BD",
+              userName: "testing_local_tony",
+              avatarUrl: "google.com",
+            },
+            content:
+              "This is what i think about the time i went on a boat trip with @capt andy",
+            likes: 123,
+            dislikes: 22,
+            shares: 2345,
+            createdAt: "jan 27, 2023",
+          },
+        ],
+
+        media: [
+          {
+            id: "uaalkdjfalskdjlfksa",
+            type: MediaType.IMAGE,
+            srcUri: offlineMediaUri,
+            // alt?: string;
+          },
+        ],
+      },
+    },
+    {
+      id: "01H1YGY1YM1EF1VZCGNS3856BX",
+      type: ItemDataType.EXPERIENCE,
+      createdAt: "jan 27, 2023",
+      href: "http://localhost:3000",
+      creator: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BD",
+        userName: "testing_local_tony",
+        avatarUrl: "google.com",
+      },
+      instance: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BX",
+        title: "Seranusa",
+        points: 12345,
+        rate: 123456,
+        description:
+          "This is a beautiful home overlooking the tranquil waters of the Caribbean Sea.",
+        reviews: [
+          {
+            id: "01H1YGY1YM1EF1VZCGNS3856AC",
+            creator: {
+              id: "01H1YGY1YM1EF1VZCGNS3856BD",
+              userName: "testing_local_tony",
+              avatarUrl: "google.com",
+            },
+            content:
+              "This is what i think about the time i went on a boat trip with @capt andy",
+            likes: 123,
+            dislikes: 22,
+            shares: 2345,
+            createdAt: "jan 27, 2023",
+          },
+        ],
+
+        media: [
+          {
+            id: "uaalkdjfalskdjlfksa",
+            type: MediaType.IMAGE,
+            srcUri: offlineMediaUri,
+            // alt?: string;
+          },
+        ],
+      },
+    },
+    {
+      id: "01H1YGY1YM1EF1VZCGNS3856FGE",
+      type: ItemDataType.EXPERIENCE,
+      createdAt: "jan 27, 2023",
+      href: "http://localhost:3000",
+      creator: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BD",
+      },
+      instance: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BX",
+        title: "Pink Conch",
+        points: 12345,
+        rate: 123456,
+        description:
+          "This is a beautiful home overlooking the tranquil waters of the Caribbean Sea.",
+        reviews: [
+          {
+            id: "01H1YGY1YM1EF1VZCGNS3856AC",
+            creator: {
+              id: "01H1YGY1YM1EF1VZCGNS3856BD",
+              userName: "testing_local_tony",
+              avatarUrl: "google.com",
+            },
+            content:
+              "This is what i think about the time i went on a boat trip with @capt andy",
+            likes: 123,
+            dislikes: 22,
+            shares: 2345,
+            createdAt: "jan 27, 2023",
+          },
+        ],
+
+        media: [
+          {
+            id: "uaalkdjfalskdjlfksa",
+            type: MediaType.IMAGE,
+            srcUri: offlineMediaUri,
+            // alt?: string;
+          },
+        ],
+      },
+    },
+    {
+      id: "01H1YGY1YM1EF1VZCGNS3856FGE",
+      type: ItemDataType.EXPERIENCE,
+      createdAt: "jan 27, 2023",
+      href: "http://localhost:3000",
+      creator: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BD",
+      },
+      instance: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BX",
+        title: "Mistral",
+        points: 12345,
+        rate: 123456,
+        description:
+          "This is a beautiful home overlooking the tranquil waters of the Caribbean Sea.",
+        reviews: [
+          {
+            id: "01H1YGY1YM1EF1VZCGNS3856AC",
+            creator: {
+              id: "01H1YGY1YM1EF1VZCGNS3856BD",
+              userName: "testing_local_tony",
+              avatarUrl: "google.com",
+            },
+            content:
+              "This is what i think about the time i went on a boat trip with @capt andy",
+            likes: 123,
+            dislikes: 22,
+            shares: 2345,
+            createdAt: "jan 27, 2023",
+          },
+        ],
+
+        media: [
+          {
+            id: "uaalkdjfalskdjlfksa",
+            type: MediaType.IMAGE,
+            srcUri: offlineMediaUri,
+            // alt?: string;
+          },
+        ],
       },
     },
   ],
@@ -81,7 +243,7 @@ const curation = {
 // will return a curation containing a list of items that it deems to be
 // relevant to the guest.
 export async function getCuration(ctx?: Persona): Promise<Curation> {
-  if (ctx) console.log(ctx.limit); 
+  if (ctx) console.log(ctx.limit);
 
   try {
     // const jsonDirectory = path.join(process.cwd(), 'mock_curations.json');
@@ -107,7 +269,7 @@ export async function getCuration(ctx?: Persona): Promise<Curation> {
       from: "useEffect",
     };
     if (ctx) params.limit = ctx.limit;
-    console.log("params: to refresh context.  ", params);
+    // console.log("func.getCuration -> params: to refresh context.  ", params);
     // let curation = JSON.parse(fileContents);
     // let curation: Curation = JSON.parse('{}');
     // console.log("curation: ", curation);
@@ -123,3 +285,56 @@ export async function getCuration(ctx?: Persona): Promise<Curation> {
 
   // });
 }
+
+/**
+ * 
+ * 
+ *  {
+      id: "01H1YGY1YM1EF1VZCGNS3856BC",
+      type: ItemDataType.STORY,
+      createdAt: "jan 27, 2023",
+      creator: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BD",
+        userName: "testing_local_tony",
+        avatarUrl: "google.com",
+      },
+      instance: {
+        id: "01H1YGY1YM1EF1VZCGNS3856BC",
+        name: "sample name 1",
+        title: "Boost your conversion rate",
+        points: 12345,
+        reviews: [
+          {
+            id: "01H1YGY1YM1EF1VZCGNS3856AC",
+            creator: {
+              id: "01H1YGY1YM1EF1VZCGNS3856BD",
+              userName: "testing_local_tony",
+              avatarUrl: "google.com",
+            },
+            content:
+              "This is what i think about the time i went on a boat trip with @capt andy",
+            likes: 123,
+            dislikes: 22,
+            shares: 2345,
+          },
+        ],
+        href: "http://localhost:3000",
+        media: [
+          {
+            id: "uaalkdjfalskdjlfksa",
+            type: MediaType.IMAGE,
+            srcUri:
+              offlineMediaUri,
+            // alt?: string;
+          },
+        ],
+        description:
+          "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.",
+        content:
+          "This is some sample content about a time in St. John where my and a friend named mark had a great time out on the water with the fellas. The wifes wree there too!",
+        imageUrl:
+          offlineMediaUri,
+      },
+    },
+    
+ */

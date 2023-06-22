@@ -1,11 +1,12 @@
-import { Journey, Experience } from "@/interfaces";
+import { JourneyData, ExperienceData } from "@/interfaces";
+import { ulid } from "ulid";
 
 export type ApiResponse<T> = {
   data?: T;
   error: string;
 };
 
-export function createJourney(journey: Journey): ApiResponse<Journey> {
+export function createJourney(journey: JourneyData): ApiResponse<JourneyData> {
   if (!journey.name) {
     return {
       error: "title is required",
@@ -19,27 +20,31 @@ export function createJourney(journey: Journey): ApiResponse<Journey> {
       error: "a creator is needed in order to create a journey",
     };
   }
-  journey.id = "01H24VF0JTY981SJMYXZW7JR0X";
-  localStorage.setItem(
-    "journey_01H24VF0JTY981SJMYXZW7JR0X",
-    JSON.stringify(journey),
-  );
+  let journeysArr: JourneyData[] = [];
+  journey.id = ulid();
+
+  let journeysJsonStr = localStorage.getItem("journeys");
+
+  if (journeysJsonStr) {
+    journeysArr = JSON.parse(journeysJsonStr);
+  } else {
+    console.log("no journeys found in local storage; creating a new one");
+  }
+  journeysArr.push(journey);
+  localStorage.setItem("journeys", JSON.stringify(journeysArr));
+
   return {
     data: journey,
     error: "",
   };
 }
 
-export function getJourneys(): ApiResponse<Journey[]> {
-  let journeys: Journey[] = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    if (key?.includes("journey")) {
-      let journey = localStorage.getItem(key);
-      if (journey) {
-        journeys.push(JSON.parse(journey));
-      }
-    }
+export function getJourneys(): ApiResponse<JourneyData[]> {
+  let journeys: JourneyData[] = [];
+
+  let journeysStr = localStorage.getItem("journeys");
+  if (journeysStr) {
+    journeys = JSON.parse(journeysStr);
   }
   return {
     data: journeys,
@@ -47,41 +52,54 @@ export function getJourneys(): ApiResponse<Journey[]> {
   };
 }
 
+export function getJourneyById(journeyId: string): ApiResponse<JourneyData> {
+  let journeys = getJourneys();
+  console.log("getting journey by id", journeyId, journeys);
+  if (journeys.data === undefined) {
+    return {
+      error: "no journeys found",
+    };
+  }
+  for (let i = 0; i < journeys.data.length; i++) {
+    if (journeys.data[i].id === journeyId) {
+      return {
+        data: journeys.data[i],
+        error: "",
+      };
+    }
+  }
+  return {
+    error: `no journey found with the provided id of ${journeyId}`,
+  };
+}
+
 export function addExperienceToJourney(
   journeyId: string,
-  experience: Experience,
+  experience: ExperienceData,
 ): ApiResponse<boolean> {
   // find journey from local storage
-  let journeyStr = localStorage.getItem(`journey_${journeyId}`);
-
-  // if not in local storage then call api to get the journey
-  if (!journeyStr) {
-    console.log("no journey found locally, calling api");
-    // if no journey found then return not found error
+  let journeyObj = getJourneyById(journeyId).data;
+  if (journeyObj === undefined) {
+    console.log("no journey found");
     return {
-      data: false,
       error: `no journey found with the provided id of ${journeyId}`,
     };
   }
-
   // parse the journey from the response (local | api)
 
-  let journeyObj: Journey;
-  if (typeof journeyStr === "string") {
-    journeyObj = JSON.parse(journeyStr);
-    console.log(`journey found locally with id ${journeyObj.id}`);
-  } else {
-    console.error("journey is not a string and cannot be parsed");
-    return {
-      data: false,
-      error: "journey is not a string and cannot be parsed",
-    };
-  }
   // add the experience to the journey
   if (journeyObj.experiences === undefined) {
     journeyObj.experiences = [];
   }
+  console.log("experience being added to the journey", experience);
   journeyObj.experiences.push(experience);
+  let total = 0;
+  journeyObj.experiences.map((b) => {
+    console.log("rate to be added to journye, ", b.rate);
+    total += b.rate;
+    console.log("total after going through all the experiences", total);
+  });
+  journeyObj.total = total;
 
   // make an update call to the api. if good save the journey to local storage.
   localStorage.setItem(`journey_${journeyId}`, JSON.stringify(journeyObj));

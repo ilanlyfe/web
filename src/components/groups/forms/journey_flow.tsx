@@ -1,15 +1,16 @@
 import { FC, useState, useEffect } from "react";
-import { Experience, Journey } from "@/interfaces";
+import { ExperienceData, JourneyData } from "@/interfaces";
 import Preview, { InstanceType } from "@/components/elements/preview";
 import {
   addExperienceToJourney,
   createJourney,
   getJourneys,
 } from "@/context/journeys";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 interface JourneyFlowProps {
   currStep?: number;
-  experience: Experience;
+  experience: ExperienceData;
   toggleModal?: () => void;
 }
 const JourneyFlow: FC<JourneyFlowProps> = ({
@@ -18,12 +19,13 @@ const JourneyFlow: FC<JourneyFlowProps> = ({
   toggleModal,
 }) => {
   const [step, setStep] = useState(0);
-  const [journeys, setJourneys] = useState<Journey[]>([]);
+  const [journeys, setJourneys] = useState<JourneyData[]>([]);
   // When the flow is active the component will then load all the current
   // journeys for the user.
   function loadJourneys() {
     let jns = getJourneys();
-    console.debug("journeys", jns);
+    console.debug("current journeys from local storage", jns);
+    console.log("experience passed in to the journey flow.", experience);
     if (jns.data?.length !== 0) {
       setJourneys(jns.data!);
     }
@@ -43,15 +45,6 @@ const JourneyFlow: FC<JourneyFlowProps> = ({
     console.log("printing event data based on what was clicked... ", e);
     // if no journey exists, the guest will be prompted to create one.
     // test experience id "01H24VF0JTY981SJMYXZW7JR0X",
-    let journeyId = "hello";
-    // TODO: this should be done once the user has logged in.
-    if (journeys.length === 0) {
-      console.debug("no journeys found in state, loading...");
-      // create new journey
-    }
-
-    let resp = addExperienceToJourney(journeyId, experience);
-    console.debug("response from adding experience to journey", resp);
   }
 
   useEffect(() => {
@@ -101,27 +94,77 @@ const JourneyFlow: FC<JourneyFlowProps> = ({
       <div>
         <div>Step1: Create new journey</div>
         {/* add the inputs to get the journey details such as name and date */}
-        <div onClick={handleCreateAndAddToJourney}>
-          this will create and add the experience to the newly created journey
-        </div>
+        <Formik
+          initialValues={{
+            name: "",
+            description: "",
+            startDate: "",
+            endDate: "",
+          }}
+          validate={(values) => {
+            const errors = {
+              name: "",
+            };
+            if (!values.name) {
+              console.log("no journey name");
+              errors.name = "A Name is required when creating a journey";
+              return errors;
+            }
+            // else if (
+            //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.name)
+            // ) {
+            //   errors.name = "The name provided is no valid";
+            //   console.log("invalid dates");
+            //   console.log("returning errors", errors, values);
+            //   return errors;
+            // }
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            console.log("submitting values", values);
+            handleCreateAndAddToJourney({
+              id: "",
+              name: values.name,
+              description: values.description,
+              startDate: new Date(values.startDate),
+              endDate: new Date(values.endDate),
+              total: 0,
+              creator: {
+                id: "01H253Q3MEB4TV43Q9ZWXTMWPC",
+                userName: "testing_tony_local",
+                avatarUrl: "https://i.pravatar.cc/150?img=3",
+              },
+            });
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <Field type="text" name="name" />
+              <ErrorMessage name="name" component="div" />
+              <Field type="text" name="description" />
+              <ErrorMessage name="description" component="div" />
+              <Field type="text" name="startDate" />
+              <ErrorMessage name="startDate" component="div" />
+              <Field type="text" name="endDate" />
+              <ErrorMessage name="endDate" component="div" />
+              <button type="submit" disabled={isSubmitting}>
+                Create
+              </button>
+            </Form>
+          )}
+        </Formik>
       </div>
     );
 
-    function handleCreateAndAddToJourney() {
+    function handleCreateAndAddToJourney(jData: JourneyData) {
       // add name to journey
 
       // complete createtion
       let journeyId: string;
-      let { data, error: err1 } = createJourney({
-        id: "", // blank so that we don't have a ts error. The id is created internally
-        name: "test journey",
-        description: "this is a test journey",
-        creator: {
-          id: "01H253Q3MEB4TV43Q9ZWXTMWPC",
-          userName: "tony_local",
-          avatarUrl: "https://i.pravatar.cc/150?img=3",
-        },
-      });
+      let { data, error: err1 } = createJourney(jData);
       if (data?.id === undefined) {
         console.error(
           "the data returned after creating a journey did not have an id",
@@ -132,20 +175,21 @@ const JourneyFlow: FC<JourneyFlowProps> = ({
         console.error("error creating journey when adding experience");
         return;
       }
-      console.log("data response from creating journey", data);
+
       journeyId = data.id;
 
-      let { data: did, error: err2 } = addExperienceToJourney(
+      let { data: wasAdded, error: err2 } = addExperienceToJourney(
         journeyId,
         experience,
       );
       if (err2) {
         console.error(
           "boolean response from adding experience to journey",
-          did,
+          wasAdded,
           err2,
         );
       }
+      loadJourneys();
       if (toggleModal) toggleModal(); // close the modal
     }
   }

@@ -1,67 +1,40 @@
 import { FC, useState, useEffect } from "react";
-import useSWR from "swr";
 import Media from "@/components/core/media";
-import {
-  ItemData,
-  ItemDataType,
-  Curation,
-  ExperienceType,
-  StoryType,
-} from "@/interfaces";
-import { fetcher } from "@/utils/misc";
+import { ExperienceData } from "@/interfaces";
 import Type, { TypeVariant, TypePricingType } from "@/components/core/type";
+// import useSWR from "swr";
+// import { fetcher } from "@/utils/misc";
 interface ExperienceProps {
-  data: ItemData;
+  data: ExperienceData;
 }
-const Experience: FC<ExperienceProps> = ({}) => {
-  const [experience, setExperience] = useState<ItemData>();
-  const [story, setStory] = useState<StoryType>();
-  const { data: curation, error } = useSWR<Curation>("/api/curator", fetcher);
+const Experience: FC<ExperienceProps> = ({ data }) => {
+  // const [experience, setExperience] = useState<ExperienceData>();
+  // const { data: curation, error } = useSWR<Curation>("/api/curator", fetcher);
 
   // console.log("curation data from curator api", curation);
   // if (error) console.error("error from curator api", error);
 
   // TODO: this should come from the context of the current user
   useEffect(() => {
-    if (curation && curation.items) {
-      for (const itemData of curation.items) {
-        switch (itemData.item) {
-          case itemData as ExperienceType:
-          case itemData as StoryType:
-          default:
-            console.log("doing nothing with this item");
-        }
-
-        if (itemData.type === ItemDataType.EXPERIENCE) {
-          setExperience({
-            id: itemData.id,
-            description: itemData.description,
-            type: itemData.type,
-            media: itemData.media,
-            rate: itemData.rate,
-            title: itemData.title,
-            reviews: itemData.reviews,
-            createdAt: itemData.createdAt,
-            creator: itemData.creator,
-            item: {
-              id: itemData.item.id,
-            },
-          });
-        }
-      }
-    }
+    // if (curation && curation.items) {
+    //   for (const itemData of curation.items) {
+    //     switch (itemData.item) {
+    //       case itemData as ExperienceType:
+    //       case itemData as StoryType:
+    //       default:
+    //         console.log("doing nothing with this item");
+    //     }
+    //   }
+    // }
   }, []);
+  console.log("experience data: ", data);
   return (
     <div>
       <div className="h-auto pt-16">
-        {experience === undefined ? (
-          <>loading media...</>
-        ) : (
-          <Media media={experience.media} />
-        )}
+        <Media media={data.media} />
       </div>
       <section className="mx-2 pt-2 h-auto">
-        <Type variant={TypeVariant.TITLE} text="Amazing Villa" />
+        <Type variant={TypeVariant.TITLE} text={data.title} />
         <Type variant={TypeVariant.LIGHT} text="8 guests, 4 beds, 2 baths" />
         <Type
           variant={TypeVariant.LIGHT}

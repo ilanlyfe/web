@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react"; // import from 'keen-slider/react.es' for to get an ES module
-import { Media } from "@/interfaces";
+import { MediaData } from "@/interfaces";
 
 export interface CarouselOptions {
   loop?: boolean;
@@ -11,7 +11,7 @@ export interface CarouselOptions {
   arrows?: boolean;
 }
 interface MediaProps {
-  media: Media[];
+  media: MediaData[];
   carouselOptions?: CarouselOptions;
 }
 
@@ -39,7 +39,7 @@ const Media: FC<MediaProps> = ({ media, carouselOptions: co }) => {
     },
     loop: co.loop,
   });
-
+  console.log("media passed to core/media component: ", media);
   return (
     <>
       <div className="navigation-wrapper">

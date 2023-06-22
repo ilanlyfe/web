@@ -6,12 +6,12 @@ import {
   MouseEvent,
   ReactNode,
 } from "react";
-import { AuthSession, Journey } from "@/interfaces";
+import { AuthSession, JourneyData } from "@/interfaces";
 import { handleSignUp } from "@/context/auth";
 
 interface GlobalContextProps {
   session: AuthSession | null;
-  journeys: Journey[];
+  journeys: JourneyData[];
   handleSignIn: (e: MouseEvent) => Promise<void>;
   handleLogOut: (e: MouseEvent) => Promise<void>;
   handleSignUp: typeof handleSignUp;
@@ -41,7 +41,7 @@ export const GlobalProvider: FC<GlobalProviderProps> = ({ children }) => {
   const [currentAuthState, setCurrentAuthState] = useState<AuthSession | null>(
     null,
   );
-  const [journeys, setJourneys] = useState<Journey[]>([]);
+  const [journeys, setJourneys] = useState<JourneyData[]>([]);
 
   useEffect(() => {
     // (async () => {
@@ -104,10 +104,10 @@ export const GlobalProvider: FC<GlobalProviderProps> = ({ children }) => {
     }
   }
 
-  function updateJourneys(journey: Journey) {
+  function updateJourneys(journey: JourneyData) {
     setJourneys([...journeys, journey]);
   }
-  function loadJourneysFromLocal(): Journey[] {
+  function loadJourneysFromLocal(): JourneyData[] {
     return journeys;
   }
 };

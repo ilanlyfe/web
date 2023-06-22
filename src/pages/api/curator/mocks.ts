@@ -1,170 +1,60 @@
 import {
   Curation,
   ItemData,
+  MediaData,
   ItemDataType,
   MediaType,
-  Media,
 } from "@/interfaces";
-
+const onlineMediaUri =
+  "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80";
+const offlineMediaUri = "/wall.jpg";
 const mockItemData: ItemData[] = [
   {
-    id: "01H1YGY1YM1EF1VZCGNS3856BC",
+    id: "01H1YGY1YM1EF1VZCGNS3856FGE",
     type: ItemDataType.EXPERIENCE,
-    title: "this is a gem",
-    description: "sample description",
-    createdAt: "2021-09-01T00:00:00Z",
-    rate: 456.76,
-    item: {
-      id: "01H1YGY1YM1EF1VZCGNS3856BC",
-    },
-    media: [
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-    ],
-    location: {
-      lat: 34.039375,
-      lng: -118.23397,
-      updatedAt: new Date(),
-    },
+    createdAt: "jan 27, 2023",
+    href: "http://localhost:3000",
     creator: {
-      id: "01H24X6TTNQ7M0X6SF69TEC70S",
-      userName: "tony",
-      avatarUrl: "",
+      id: "01H1YGY1YM1EF1VZCGNS3856BD",
     },
-  },
-  {
-    id: "01H1YGY1YM1EF1VZCGNS3856BD",
-    type: ItemDataType.EXPERIENCE,
-    title: "this is a gem",
-    description: "sample description",
-    createdAt: "2021-09-01T00:00:00Z",
-    rate: 456.76,
-    item: {
-      id: "",
-    },
-    media: [
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-    ],
+    instance: {
+      id: "01H1YGY1YM1EF1VZCGNS3856BX",
+      title: "Villa Second",
+      points: 12345,
+      rate: 123456,
+      description:
+        "This is a beautiful home overlooking the tranquil waters of the Caribbean Sea.",
+      reviews: [
+        {
+          id: "01H1YGY1YM1EF1VZCGNS3856AC",
+          creator: {
+            id: "01H1YGY1YM1EF1VZCGNS3856BD",
+            userName: "testing_local_tony",
+            avatarUrl: "google.com",
+          },
+          content:
+            "This is what i think about the time i went on a boat trip with @capt andy",
+          likes: 123,
+          dislikes: 22,
+          shares: 2345,
+          createdAt: "jan 27, 2023",
+        },
+      ],
 
-    creator: {
-      id: "01H24X6TTNQ7M0X6SF69TEC70S",
-      userName: "tony",
-      avatarUrl: "",
+      media: [
+        {
+          id: "uaalkdjfalskdjlfksa",
+          type: MediaType.IMAGE,
+          srcUri: offlineMediaUri,
+          // alt?: string;
+        },
+      ],
     },
-  },
-  {
-    id: "01H1YGY1YM1EF1VZCGNS3856BE",
-    type: ItemDataType.EXPERIENCE,
-    title: "this is a gem",
-    description: "sample description",
-    createdAt: "2021-09-01T00:00:00Z",
-    rate: 456.76,
-    item: {
-      id: "",
-    },
-    media: [
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-    ],
-
-    creator: {
-      id: "01H24X6TTNQ7M0X6SF69TEC70S",
-      userName: "tony",
-      avatarUrl: "",
-    },
-  },
-  {
-    id: "01H1WAWKG35QES46J3DVCMZDTS",
-    type: ItemDataType.EXPERIENCE,
-    title: "this is a gem",
-    description: "sample description",
-    createdAt: "2021-09-01T00:00:00Z",
-    rate: 456.76,
-    item: {
-      id: "01H1YGY1YM1EF1VZCGNS3856BC",
-    },
-    media: [
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-    ],
-
-    creator: {
-      id: "01H24X6TTNQ7M0X6SF69TEC70S",
-      userName: "tony",
-      avatarUrl: "",
-    },
-  },
-  {
-    id: "01ARZ3NDEKTSV4RRFFQ69G5FAV",
-    type: ItemDataType.STORY,
-    title: "this is a gem",
-    description: "sample description",
-    createdAt: "2021-09-01T00:00:00Z",
-    rate: 456.76,
-    item: {
-      id: "01H1YGY1YM1EF1VZCGNS3856BC",
-    },
-    media: [
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-      {
-        type: MediaType.IMAGE,
-        srcUri:
-          "https://images.unsplash.com/photo-1630440142870-4b0b8b0b0b0b?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80",
-        alt: "alt text",
-      },
-    ],
-
-    creator: {
-      id: "01H24X6TTNQ7M0X6SF69TEC70S",
-      userName: "tony",
-      avatarUrl: "",
-    },
+    // location: {
+    //   lat: 34.039375,
+    //   lng: -118.23397,
+    //   updatedAt: new Date(),
+    // },
   },
 ];
 
@@ -183,30 +73,48 @@ export function getMockItem(id: string): ItemData {
   //   }
   // }
   return {
-    id: "01H1YGY1YM1EF1VZCGNS3856BC",
+    id: "01H1YGY1YM1EF1VZCGNS3856FGE",
     type: ItemDataType.EXPERIENCE,
-    title: "this is a gem",
-    description: "sample description",
-    createdAt: "2021-09-01T00:00:00Z",
-    rate: 456.76,
-    media: getMockMedia(),
-    item: {
-      id: "01H1YGY1YM1EF1VZCGNS3856BC",
-    },
-    location: {
-      lat: 34.039375,
-      lng: -118.23397,
-      updatedAt: new Date(),
-    },
+    createdAt: "jan 27, 2023",
+    href: "http://localhost:3000",
     creator: {
-      id: "01H24X6TTNQ7M0X6SF69TEC70S",
-      userName: "tony",
-      avatarUrl: "",
+      id: "01H1YGY1YM1EF1VZCGNS3856BD",
     },
+    instance: {
+      id: "01H1YGY1YM1EF1VZCGNS3856BX",
+      title: "Villa Second",
+      points: 12345,
+      rate: 123456,
+      description:
+        "This is a beautiful home overlooking the tranquil waters of the Caribbean Sea.",
+      reviews: [
+        {
+          id: "01H1YGY1YM1EF1VZCGNS3856AC",
+          creator: {
+            id: "01H1YGY1YM1EF1VZCGNS3856BD",
+            userName: "testing_local_tony",
+            avatarUrl: "google.com",
+          },
+          content:
+            "This is what i think about the time i went on a boat trip with @capt andy",
+          likes: 123,
+          dislikes: 22,
+          shares: 2345,
+          createdAt: "jan 27, 2023",
+        },
+      ],
+
+      media: getMockMedia(),
+    },
+    // location: {
+    //   lat: 34.039375,
+    //   lng: -118.23397,
+    //   updatedAt: new Date(),
+    // },
   };
 }
 
-export function getMockMedia(): Media[] {
+export function getMockMedia(): MediaData[] {
   return [
     {
       id: "01H1X3C8VSQ60JES458DADSBM4",
@@ -252,25 +160,176 @@ export function mockGetResource(id: string): ItemData {
   //   }
   // }
   return {
-    id: "01H1YGY1YM1EF1VZCGNS3856BC",
+    id: "01H1YGY1YM1EF1VZCGNS3856FGE",
+    type: ItemDataType.EXPERIENCE,
+    createdAt: "jan 27, 2023",
+    href: "http://localhost:3000",
+    creator: {
+      id: "01H1YGY1YM1EF1VZCGNS3856BD",
+    },
+    instance: {
+      id: "01H1YGY1YM1EF1VZCGNS3856BX",
+      title: "Villa Second",
+      points: 12345,
+      rate: 123456,
+      description:
+        "This is a beautiful home overlooking the tranquil waters of the Caribbean Sea.",
+      reviews: [
+        {
+          id: "01H1YGY1YM1EF1VZCGNS3856AC",
+          creator: {
+            id: "01H1YGY1YM1EF1VZCGNS3856BD",
+            userName: "testing_local_tony",
+            avatarUrl: "google.com",
+          },
+          content:
+            "This is what i think about the time i went on a boat trip with @capt andy",
+          likes: 123,
+          dislikes: 22,
+          shares: 2345,
+          createdAt: "jan 27, 2023",
+        },
+      ],
+
+      media: [
+        {
+          id: "uaalkdjfalskdjlfksa",
+          type: MediaType.IMAGE,
+          srcUri: offlineMediaUri,
+          // alt?: string;
+        },
+      ],
+    },
+    // location: {
+    //   lat: 34.039375,
+    //   lng: -118.23397,
+    //   updatedAt: new Date(),
+    // },
+  };
+}
+
+/**
+ * {
+    id: "01H1YGY1YM1EF1VZCGNS3856BD",
     type: ItemDataType.EXPERIENCE,
     title: "this is a gem",
     description: "sample description",
     createdAt: "2021-09-01T00:00:00Z",
     rate: 456.76,
-    media: getMockMedia(),
     item: {
-      id: "01H1YGY1YM1EF1VZCGNS3856BC",
+      id: "",
     },
-    location: {
-      lat: 34.039375,
-      lng: -118.23397,
-      updatedAt: new Date(),
-    },
+    media: [
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+    ],
+
     creator: {
       id: "01H24X6TTNQ7M0X6SF69TEC70S",
       userName: "tony",
       avatarUrl: "",
     },
-  };
-}
+  },
+  {
+    id: "01H1YGY1YM1EF1VZCGNS3856BE",
+    type: ItemDataType.EXPERIENCE,
+    title: "this is a gem",
+    description: "sample description",
+    createdAt: "2021-09-01T00:00:00Z",
+    rate: 456.76,
+    item: {
+      id: "",
+    },
+    media: [
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+    ],
+
+    creator: {
+      id: "01H24X6TTNQ7M0X6SF69TEC70S",
+      userName: "tony",
+      avatarUrl: "",
+    },
+  },
+  {
+    id: "01H1WAWKG35QES46J3DVCMZDTS",
+    type: ItemDataType.EXPERIENCE,
+    title: "this is a gem",
+    description: "sample description",
+    createdAt: "2021-09-01T00:00:00Z",
+    rate: 456.76,
+    item: {
+      id: "01H1YGY1YM1EF1VZCGNS3856BC",
+    },
+    media: [
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+    ],
+
+    creator: {
+      id: "01H24X6TTNQ7M0X6SF69TEC70S",
+      userName: "tony",
+      avatarUrl: "",
+    },
+  },
+  {
+    id: "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+    type: ItemDataType.STORY,
+    description: "sample description",
+    createdAt: "2021-09-01T00:00:00Z",
+    rate: 456.76,
+    item: {
+      id: "01H1YGY1YM1EF1VZCGNS3856BC",
+    },
+    media: [
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+      {
+        type: MediaType.IMAGE,
+        srcUri:
+          offlineMediaUri,
+        alt: "alt text",
+      },
+    ],
+
+    creator: {
+      id: "01H24X6TTNQ7M0X6SF69TEC70S",
+      userName: "tony",
+      avatarUrl: "",
+    },
+  },
+ */

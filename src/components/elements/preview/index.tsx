@@ -1,10 +1,9 @@
 import { FC } from "react";
-import Link from "next/link";
-import { Journey, Experience } from "@/interfaces";
+import { JourneyData, ExperienceData } from "@/interfaces";
 
 interface PreviewProps {
   type: InstanceType;
-  data?: Journey | Experience;
+  data?: JourneyData | ExperienceData;
   onClick?: (e: any) => void;
 }
 
@@ -14,12 +13,6 @@ export enum InstanceType {
   ADD_NEW_JOURNEY = "add_new_journey",
 }
 
-export interface JourneyData {
-  id: string;
-}
-export interface ExperienceData {
-  id: string;
-}
 const Preview: FC<PreviewProps> = ({ type, onClick }) => {
   return (
     <div className="w-full m-w-full " onClick={onClick}>

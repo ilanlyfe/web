@@ -1,14 +1,14 @@
 import React, { FC } from "react";
-import { Guest, ItemData } from "@/interfaces";
+import { Guest, StoryData } from "@/interfaces";
 
 export interface StoryProps {
-  data: ItemData;
+  data: StoryData;
   expanded?: boolean;
 }
 
 const Story: FC<StoryProps> = ({
   expanded,
-  data: { id, media, createdAt, creator, href, title }
+  data: { id, media, createdAt, creator, title },
 }) => {
   // handle active prop
 
@@ -51,10 +51,10 @@ const Story: FC<StoryProps> = ({
             </div>
           </div>
           <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-            <a href={href}>
+            <p>
               <span className="absolute inset-0" />
               {title}
-            </a>
+            </p>
           </h3>
         </article>
       )}

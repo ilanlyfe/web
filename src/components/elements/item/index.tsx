@@ -4,12 +4,22 @@
 // components.
 
 import { useEffect, useState, FC } from "react";
-import { ItemDataType, ItemProps, ItemData } from "@/interfaces";
+import {
+  ItemDataType,
+  ItemData,
+  ExperienceData,
+  StoryData,
+} from "@/interfaces";
 import Story from "./story";
 import Experience from "./experience";
-import Gem from "./gem";
-import Guest from "./guest";
-import Journey from "./journey";
+
+
+export interface ItemProps {
+  // data: ItemData;
+  data: ItemData;
+  expanded?: boolean;
+  toggleModalFn?: () => void;
+}
 
 const ItemComp: FC<ItemProps> = ({ data, expanded, toggleModalFn }) => {
   const [loading, setLoading] = useState(true);
@@ -40,18 +50,21 @@ const ItemComp: FC<ItemProps> = ({ data, expanded, toggleModalFn }) => {
 export default ItemComp;
 
 function renderItem(data: ItemData, expanded: boolean | undefined) {
+  console.log("id from renderItem func: ", data.id);
   switch (data.type) {
     case ItemDataType.EXPERIENCE:
-      return <Experience data={data} />;
-    case ItemDataType.GEM:
-      console.log("rendering gem");
-      return <Gem data={data} expanded={expanded} />;
+      return <Experience data={data.instance as ExperienceData} />;
     case ItemDataType.STORY:
-      return <Story data={data} expanded={expanded} />;
-    case ItemDataType.JOURNEY:
-      return <Journey name="sample_journey" />;
-    case ItemDataType.GUEST:
-      return <Guest data={data} />;
+      return <Story data={data.instance as StoryData} />;
+    // case ItemDataType.GEM:
+    //   console.log("rendering gem");
+    //   return <Gem data={data} expanded={expanded} />;
+    // case ItemDataType.STORY:
+    //   return <Story data={data} expanded={expanded} />;
+    // case ItemDataType.JOURNEY:
+    //   return <Journey data={data} />;
+    // case ItemDataType.GUEST:
+    //   return <Guest data={data} />;
     default:
       return (
         <>
