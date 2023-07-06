@@ -27,20 +27,13 @@ export default function ItemPage({
     {} as ExperienceData,
   );
 
-  // const router = useRouter();
-  // const id = router.query.id as string;
-
-  // console.log("curation data from curator api", curation);
-  // if (error) console.error("error from curator api", error);
-
-  // TODO: this should come from the context of the current user
-  console.log("right before useEffect hookk..... ");
-  useEffect(() => {
-    console.log("running useEffect hook....");
-    if (curation && curation.items) {
-      for (const itemData of curation.items) {
+  const handleCurationLoad = async () => {
+    try {
+      let curation = await getCuration();
+      for (const itemData of curation.items!) {
         if (itemData.type === ItemDataType.EXPERIENCE) {
           let data = itemData.instance as ExperienceData;
+          console.log("setting experinece state");
           setExperience({
             id: itemData.id,
             description: data.description,
@@ -51,9 +44,28 @@ export default function ItemPage({
           });
         }
       }
+    } catch (error) {
+      console.error("error getting curation", error);
+      return { props: { curation: {} as Curation } };
     }
-  }, []);
+  };
 
+  handleCurationLoad();
+
+  // const router = useRouter();
+  // const id = router.query.id as string;
+
+  // console.log("curation data from curator api", curation);
+  // if (error) console.error("error from curator api", error);
+
+  // TODO: this should come from the context of the current user
+  console.log("right before useEffect hookk..... ");
+  useEffect(() => {
+    console.log("running useEffect hook.... ", curation);
+    // if (curation && curation.items) {
+    // }
+  }, []);
+  console.log("experience data: ", experience);
   return (
     <>
       {experience === undefined ? (
@@ -63,7 +75,7 @@ export default function ItemPage({
           {/* header */}
           {/* <div className="h-16 ">header</div> */}
           <div className="h-auto pt-16">
-            {/* <Media media={experience.media} /> */}
+            {/* <Media media={experience.media} loading={true} /> */}
           </div>
           <div></div>
           <section className="mx-2 pt-2 h-auto">
@@ -134,13 +146,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [
       {
         params: {
-          id: "X01H1YGY1YM1EF1VZCGNS3856BB",
+          name: "X01H1YGY1YM1EF1VZCGNS3856BB",
           cuat: "some-context",
         },
       }, // See the "paths" section below
       {
         params: {
-          id: "X01H1YGY1YM1EF1VZCGNS3856BC",
+          name: "X01H1YGY1YM1EF1VZCGNS3856BC",
           cuat: "some-context",
         },
       }, // See the "paths" section below

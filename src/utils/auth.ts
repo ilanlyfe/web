@@ -87,9 +87,6 @@ export function getSession(): Session {
       },
     };
   } else {
-    console.log(
-      "func.getSession:-> we are running on the server ",
-    );
     return {
       token: "",
       guest: {

@@ -70,7 +70,7 @@ export default function Curator() {
               currentCuration.items !== undefined
                 ? currentCuration.items.map((data, idx) => (
                     <li key={idx} className="col-span-1 flex flex-col divide-y">
-                      <Link href={`/item/${data.id}`}>
+                      <Link href={`/x/${data.id}`}>
                         {/* need to handle pages for different types of itmes */}
                         <Item
                           key={idx}

@@ -13,9 +13,10 @@ export interface CarouselOptions {
 interface MediaProps {
   media: MediaData[];
   carouselOptions?: CarouselOptions;
+  loading: boolean;
 }
 
-const Media: FC<MediaProps> = ({ media, carouselOptions: co }) => {
+const Media: FC<MediaProps> = ({ media, carouselOptions: co, loading }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   if (co === undefined) {
@@ -42,6 +43,7 @@ const Media: FC<MediaProps> = ({ media, carouselOptions: co }) => {
   console.log("media passed to core/media component: ", media);
   return (
     <>
+      {loading ? <div>loading media</div> : null}
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider h-64">
           {media.map((m, idx) => (
