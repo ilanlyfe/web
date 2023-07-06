@@ -14,19 +14,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/interfaces/*": ["./src/interfaces/*"]
+      "@/*": ["./src/app/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "../src/pages/profile-sg.tsx",
-    "../src/components/molecules/forms/index.tsx"
-  ],
-  "exclude": ["node_modules"],
-  "downlevelIteration": true
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

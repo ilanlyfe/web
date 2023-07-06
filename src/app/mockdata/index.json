@@ -1,0 +1,708 @@
+{
+  "experiences": [
+    {
+      "type": "",
+      "title": "Pink Conch",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Great Cruz Bay",
+      "lat": "18.323759",
+      "long": "-64.789662",
+      "guests": "4",
+      "beds": "2",
+      "baths": "2.5",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "6",
+      "lRate": "$3,203",
+      "hRate": "$5,468",
+      "var": "$2,265",
+      "dD": "$500",
+      "cost": {
+        "Room": "$2,734"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "Caribbean Sea Shells",
+      "Owner": {
+        "Mgr": "Curtis Penn"
+      },
+      "Phone": "",
+      "Email": "",
+      "Link": "https://www.caribseashells.com/pinkconch"
+    },
+    {
+      "type": "",
+      "title": "Bombalassy",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Great Cruz Bay",
+      "lat": "18.323863",
+      "long": "-64.789961",
+      "guests": "4",
+      "beds": "2",
+      "baths": "2.5",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "8",
+      "lRate": "$3,050",
+      "hRate": "$5,027",
+      "var": "$1,977",
+      "dD": "$500",
+      "cost": {
+        "Room": "$2,514"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "Caribbean Sea Shells",
+      "Owner": {
+        "Mgr": "Curtis Penn"
+      },
+      "Phone": "207.510.6300",
+      "Email": "info@caribbeanvilla.com",
+      "Link": "https://www.caribbeanvilla.com/vacation-rentals/bombalassy-great-cruz-bay-harbor/#tab-id-2"
+    },
+    {
+      "type": "",
+      "title": "Jazz Villa",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Contant",
+      "lat": "",
+      "long": "",
+      "guests": "4",
+      "beds": "2",
+      "baths": "2.5",
+      "h-Tub": "",
+      "pool": "Yes",
+      "view": "",
+      "eval": "",
+      "lRate": "$3,250",
+      "hRate": "$5,475",
+      "var": "$2,225",
+      "dD": "",
+      "cost": {
+        "Room": ""
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "Caribbean Sea Shells",
+      "Owner": {
+        "Mgr": "Curtis Penn"
+      },
+      "Phone": "",
+      "Email": "",
+      "Link": ""
+    },
+    {
+      "type": "",
+      "title": "Sunnyledge",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Francis Bay",
+      "lat": "18.362757",
+      "long": "-64.742737",
+      "guests": "6",
+      "beds": "3",
+      "baths": "3.5",
+      "h-Tub": "0",
+      "pool": "No",
+      "view": "OV",
+      "eval": "7",
+      "lRate": "$2,975",
+      "hRate": "$6,020",
+      "var": "$3,045",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$2,007"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Villa Rentals",
+      "Owner": {
+        "Mgr": "KELEIGH REES"
+      },
+      "Phone": "703-598-9402",
+      "Email": "sunnyledgeusvi@gmail.com",
+      "Link": "https://stjohn-villarentals.com/property/sunnyledge-villa-st-john-usvi/"
+    },
+    {
+      "type": "",
+      "title": "Amorosa",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Peter Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "8",
+      "beds": "4",
+      "baths": "N/A",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "8",
+      "lRate": "$6,400",
+      "hRate": "$14,500",
+      "var": "$8,100",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$3,625"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/villa-amorosa"
+    },
+    {
+      "type": "",
+      "title": "Caribe",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "BoatMan Point Rd.",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "10",
+      "beds": "5",
+      "baths": "5.5",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "8",
+      "lRate": "$4,900",
+      "hRate": "$9,975",
+      "var": "$5,075",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$1,995"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/villa-caribe"
+    },
+    {
+      "type": "",
+      "title": "Casa de Sonadores",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Virgin Grand Estate",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "10",
+      "beds": "4",
+      "baths": "N/A",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "9",
+      "lRate": "$4,400",
+      "hRate": "$10,900",
+      "var": "$6,500",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$2,725"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/casa-de-sonodores"
+    },
+    {
+      "type": "",
+      "title": "Christy Ann Villa",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Rendezvous",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "6",
+      "beds": "3",
+      "baths": "2",
+      "h-Tub": "1",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "7",
+      "lRate": "$2,275",
+      "hRate": "$3,920",
+      "var": "$1,645",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$1,307"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/christy-ann"
+    },
+    {
+      "type": "",
+      "title": "Cinnamon Breeze ",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Peter Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "10",
+      "beds": "5",
+      "baths": "N/A",
+      "h-Tub": "1",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "9",
+      "lRate": "$13,013",
+      "hRate": "$30,646",
+      "var": "$17,633",
+      "dD": "$1,000",
+      "cost": {
+        "Room": "$6,129"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/cinnamon-breeze"
+    },
+    {
+      "type": "",
+      "title": "Croix Vista",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Fish Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "8",
+      "beds": "4",
+      "baths": "4.5",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "8",
+      "lRate": "$3,000",
+      "hRate": "$8,500",
+      "var": "$5,500",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$2,125"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/croix-vista"
+    },
+    {
+      "type": "",
+      "title": "Darcini",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Fish Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "10",
+      "beds": "5",
+      "baths": "5.5",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "HS",
+      "eval": "10",
+      "lRate": "$3,600",
+      "hRate": "$9,975",
+      "var": "$6,375",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$1,995"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/villa-darcini"
+    },
+    {
+      "type": "",
+      "title": "Grande Bay Condo",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Cruz Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "4",
+      "beds": "1",
+      "baths": "1",
+      "h-Tub": "1",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "10",
+      "lRate": "$2,275",
+      "hRate": "$3,850",
+      "var": "$1,575",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$3,850"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/grande-bay-condo"
+    },
+    {
+      "type": "",
+      "title": "Great Expectations",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Great Cruz Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "16",
+      "beds": "8",
+      "baths": "6.5",
+      "h-Tub": "2",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "9",
+      "lRate": "$8,950",
+      "hRate": "$21,500",
+      "var": "$12,550",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$2,688"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/great-expectations"
+    },
+    {
+      "type": "",
+      "title": "Kismet",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Great Cruz Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "12",
+      "beds": "5",
+      "baths": "N/A",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "8",
+      "lRate": "$14,000",
+      "hRate": "$28,000",
+      "var": "$14,000",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$5,600"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/villa-kismet"
+    },
+    {
+      "type": "",
+      "title": "Villa La Susa",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Peter Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "10",
+      "beds": "5",
+      "baths": "N/A",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "9",
+      "lRate": "$10,000",
+      "hRate": "$30,000",
+      "var": "$20,000",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$6,000"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/villa-la-susa"
+    },
+    {
+      "type": "",
+      "title": "Villa Mare Blu",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Rendezvous",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "12",
+      "beds": "6",
+      "baths": "N/A",
+      "h-Tub": "0",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "10",
+      "lRate": "$11,000",
+      "hRate": "$23,000",
+      "var": "$12,000",
+      "dD": "N/A",
+      "cost": {
+        "Room": "$3,833"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/villa-mare-blu"
+    },
+    {
+      "type": "",
+      "title": "Villa Mistral",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Hart Bay",
+      "lat": "N/A",
+      "long": "N/A",
+      "guests": "10",
+      "beds": "5",
+      "baths": "8",
+      "h-Tub": "1",
+      "pool": "Yes",
+      "view": "OV",
+      "eval": "10",
+      "lRate": "$17,500",
+      "hRate": "$22,400",
+      "var": "$4,900",
+      "dD": "$3,500",
+      "cost": {
+        "Room": "$4,480"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "St.John Ultimate Villas",
+      "Owner": {
+        "Mgr": "Kristen"
+      },
+      "Phone": "(888)-851-7588",
+      "Email": "info@stjohnultimatevillas.com",
+      "Link": "https://www.stjohnultimatevillas.com/villa-mistral"
+    },
+    {
+      "type": "",
+      "title": "Sea Wind",
+      "listed": "Yes",
+      "location": "St. John",
+      "cntry": "USVI",
+      "area": "Contant",
+      "lat": "",
+      "long": "",
+      "guests": "4",
+      "beds": "2",
+      "baths": "2.5",
+      "h-Tub": "",
+      "pool": "Yes",
+      "view": "",
+      "eval": "",
+      "lRate": "$3,660",
+      "hRate": "$5,606",
+      "var": "$1,946",
+      "dD": "",
+      "cost": {
+        "Room": "$2,803"
+      },
+      "Min": {
+        "nt": null
+      },
+      "Parnter": "Caribbean Sea Shells",
+      "Owner": {
+        "Mgr": ""
+      },
+      "Phone": "",
+      "Email": "",
+      "Link": ""
+    }
+  ],
+  "items": [
+    {
+      "id": "1"
+    }
+  ],
+  "sample-experience": {
+    "id": "01GT02ARYB08WXDHF27AA9DZA6",
+    "parentId": "",
+    "relationToParent": "RELATIONSHIP_UNSPECIFIED",
+    "createdAt": "0",
+    "updatedAt": "0",
+    "location": null,
+    "address": null,
+    "calendarIds": [],
+    "resourceType": "PROPERTY",
+    "property": {
+      "type": "HOME",
+      "home": {
+        "id": "homeid_1",
+        "createdAt": "0",
+        "updatedAt": "0",
+        "decks": []
+      },
+      "roomCount": 3,
+      "guestSize": 6,
+      "attributes": {}
+    },
+    "updatedBy": "",
+    "heroImage": "https://images.ctfassets.net/g5nrk2qtffpm/2w1fZfxrcJCSLo9UZEUUim/7a8855878facca4adf27a42890d977c0/StJamesClubMorganBay-Accommodations-Family_20Suite-S.jpg",
+    "images": [],
+    "title": "Cool Property!",
+    "shortDescription": "This is an example of a short description",
+    "regionId": "region2"
+  },
+  "resource": {
+    "id": "01GT02ARYB08WXDHF27AA9DZA6",
+    "parentId": "",
+    "relationToParent": "RELATIONSHIP_UNSPECIFIED",
+    "createdAt": "0",
+    "updatedAt": "0",
+    "location": null,
+    "address": null,
+    "calendarIds": [],
+    "resourceType": "PROPERTY",
+    "property": {
+      "type": "HOME",
+      "home": {
+        "id": "homeid_1",
+        "createdAt": "0",
+        "updatedAt": "0",
+        "decks": []
+      },
+      "roomCount": 3,
+      "guestSize": 6,
+      "attributes": {}
+    },
+    "updatedBy": "",
+    "heroImage": "https://images.ctfassets.net/g5nrk2qtffpm/2w1fZfxrcJCSLo9UZEUUim/7a8855878facca4adf27a42890d977c0/StJamesClubMorganBay-Accommodations-Family_20Suite-S.jpg",
+    "images": [],
+    "title": "Cool Property!",
+    "shortDescription": "This is an example of a short description",
+    "regionId": "region2"
+  },
+  "resource-experience": {
+    "id": "01GT02ARYB08WXDHF27AA9DZA6",
+    "parentId": "",
+    "relationToParent": "RELATIONSHIP_UNSPECIFIED",
+    "createdAt": "0",
+    "updatedAt": "0",
+    "location": null,
+    "address": null,
+    "calendarIds": [],
+    "resourceType": "PROPERTY",
+    "property": {
+      "type": "HOME",
+      "home": {
+        "id": "homeid_1",
+        "createdAt": "0",
+        "updatedAt": "0",
+        "decks": []
+      },
+      "roomCount": 3,
+      "guestSize": 6,
+      "attributes": {}
+    },
+    "updatedBy": "",
+    "heroImage": "https://images.ctfassets.net/g5nrk2qtffpm/2w1fZfxrcJCSLo9UZEUUim/7a8855878facca4adf27a42890d977c0/StJamesClubMorganBay-Accommodations-Family_20Suite-S.jpg",
+    "images": [],
+    "title": "Cool Property!",
+    "shortDescription": "This is an example of a short description",
+    "regionId": "region2"
+  }
+}

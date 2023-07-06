@@ -1,0 +1,23 @@
+
+export async function getJourneyById(
+  journeyId: string,
+): Promise<API_ResponseV2<JourneyData>> {
+  let data = localGetJourneys(journeyId);
+  console.log("getting journey by id", journeyId);
+  if (data === undefined) {
+    return {
+      error: "no journeys found",
+    };
+  }
+  for (let i = 0; i < journeys.data.length; i++) {
+    if (journeys.data[i].id === journeyId) {
+      return {
+        data: journeys.data[i],
+        error: "",
+      };
+    }
+  }
+  return {
+    error: `no journey found with the provided id of ${journeyId}`,
+  };
+}
